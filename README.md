@@ -12,7 +12,7 @@ This Chrome extension enhances the user experience on the AtCoder website by pro
 - Quick and intuitive visualization of submission status
 
 ## Installation
-1. Download the extension files from [GitHub repository](https://github.com/your/repository).
+1. Download the extension files from [GitHub repository](https://github.com/shubham22490/AtCoder-Extension).
 2. Navigate to `chrome://extensions/` in your Chrome browser.
 3. Enable Developer mode in the top right corner.
 4. Click on "Load unpacked" and select the downloaded extension files.
@@ -35,7 +35,7 @@ This Chrome extension is licensed under the [Creative Commons Attribution-NonCom
   - NonCommercial — You may not use the material for commercial purposes.
 
 ## Contributing
-Contributions are welcome! If you have any suggestions, bug fixes, or feature requests, please open an issue or submit a pull request on [GitHub](https://github.com/your/repository).
+Contributions are welcome! If you have any suggestions, bug fixes, or feature requests, please open an issue or submit a pull request on [GitHub](https://github.com/shubham22490/AtCoder-Extension).
 
 ## Disclaimer
 This extension is not affiliated with or endorsed by AtCoder. It is an independent project developed for educational and personal use.
