@@ -15,7 +15,7 @@ This Chrome extension enhances the user experience on the AtCoder website by pro
 1. Download the extension files from [GitHub repository](https://github.com/shubham22490/AtCoder-Extension).
 2. Navigate to `chrome://extensions/` in your Chrome browser.
 3. Enable Developer mode in the top right corner.
-4. Click on "Load unpacked" and select the downloaded extension files.
+4. Click on "Load unpacked" and select the downloaded extension folder.
 
 ## Usage
 1. Ensure the extension is enabled in Chrome.
