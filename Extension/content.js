@@ -9,7 +9,12 @@ var pageNum = 1;
 var currentPageHtml = parser.parseFromString(document.documentElement.outerHTML, "text/html");
 
 (async function() {
-    addColumn(currentPageHtml);
+    const ACurl = baseURL + "/standings/json";
+    console.log(ACurl);
+    const resp = await fetch(ACurl);
+    if(resp.ok){
+        addColumn(currentPageHtml);
+    }
     while(true) {
         var url = urlToExtract + `?page=${pageNum}`;
         console.log(url);
@@ -32,12 +37,15 @@ var currentPageHtml = parser.parseFromString(document.documentElement.outerHTML,
 
         pageNum++;
     }
-    const ACurl = baseURL + "/standings/json";
-    console.log(ACurl);
-    const resp = await fetch(ACurl);
-    const jsonData = await resp.json();
-    getACcount(jsonData);
-    updateTasks(currentPageHtml);
+    
+    if(resp.ok){
+        const jsonData = await resp.json();
+        getACcount(jsonData);
+        updateTasksAndStandings(currentPageHtml);
+    } else{
+        updateTasks(currentPageHtml);
+    }
+    
 })()
 
 // Function to find the 
@@ -96,8 +104,25 @@ function addColumn(parsedHTML){
     currentTable.innerHTML = table.innerHTML;
 }
 
+function updateTasks(parsedHtml){
+    var elements = parsedHtml.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
+    for(var i = 0; i < elements.length; i++){
+        var element = elements[i];
+        var ques = element.getElementsByTagName("td")[1].textContent.trim();
+        if(data.has(ques)){
+            if(data.get(ques) === "AC"){
+                element.style.backgroundColor = "#d4edc9";
+            } else if(data.get(ques) !== "WJ"){
+                element.style.backgroundColor = "#ffe3e3";
+            }
+        }
+    }
+    var currentTable = document.querySelector("table");
+    currentTable.innerHTML = parsedHtml.querySelector("table").innerHTML;
+}
+
 // Function to update the tasks page
-function updateTasks(parsedCurrentHtml) {
+function updateTasksAndStandings(parsedCurrentHtml) {
     // Selecting all the rows one by one
     var elements = parsedCurrentHtml.getElementsByTagName("tbody")[0].getElementsByTagName("tr");
     var table = parsedCurrentHtml.querySelector("table");
@@ -108,9 +133,6 @@ function updateTasks(parsedCurrentHtml) {
         row.innerHTML = `<img src='https://codeforces.org/s/15108/images/icons/user.png' /> x${problems[i].count}` ;
         var element = elements[i];
         var ques = element.getElementsByTagName("td")[1].textContent.trim();
-        // var button = element.getElementsByTagName("td")
-        // console.log(ques)
-        // console.log(button)
         if(data.has(ques)){
             if(data.get(ques) === "AC"){
                 element.style.backgroundColor = "#d4edc9";
