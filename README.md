@@ -1,5 +1,7 @@
 # AtCoder Submission Highlighter Chrome Extension
 
+[CHROME WEBSTORE LINK](https://chromewebstore.google.com/detail/atcoder-extension/jjhihgijhmdclifgifcphgpdcecejoip)
+
 ## Overview
 This Chrome extension enhances the user experience on the AtCoder website by providing visual cues about the status of submitted tasks. It modifies the appearance of tasks based on the user's submission history, making it easier to track progress and identify areas needing improvement.
 
