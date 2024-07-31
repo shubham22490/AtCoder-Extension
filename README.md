@@ -24,6 +24,9 @@ This Chrome extension enhances the user experience on the AtCoder website by pro
    - Green for accepted tasks
    - Red for not accepted tasks
    - No change for unattempted tasks
+  
+### Screenshots
+![Imgur](https://imgur.com/n5JBBGO.png)
 
 ## License
 This Chrome extension is licensed under the [Creative Commons Attribution-NonCommercial License](https://creativecommons.org/licenses/by-nc/4.0/). This means:
